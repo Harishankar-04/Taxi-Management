@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>User Page</title>
+</head>
+<body>
+    <img id="cab" src="cab.jpeg" alt="">
+    <form action="/signup" method="POST">
+    <div class="text-input">
+        <input name="fsname" type="text" id="input0" placeholder="First name">
+        <label for="input1" >First name</label>
+    </div>
+    <div class="text-input">
+        <input name="lsname" type="text" id="input1" placeholder="Last Name">
+        <label for="input1">Last Name</label>
+    </div>
+    <div class="text-input">
+        <input name="username" type="text" id="input2" placeholder="User name">
+        <label for="input1">User Id</label>
+    </div>
+    <div class="text-input">
+        <input name="Address" type="text" id="input3" placeholder="Address">
+        <label for="input1">Address</label>
+    </div>
+    <div class="text-input">
+      <select name="Gender" id="Gender" placeholder="Selcect Gender">
+        <option value="" disabled selected>Male/Female </option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+        <label for="input1">Gender</label>
+    </div>
+    <div class="text-input">
+        <input name="Phno" type="text" id="input5" placeholder="Phno:XXXXXXXXX">
+        <label for="input1">Contact No</label>
+    </div>
+    <div class="text-input">
+        <input name="password" type="password" id="input6" placeholder="password" oninput="checkInput()">
+        <label for="input1">SET password</label>
+    </div>
+    <label for="type" id="InvalidCheck" style="color: white;"></label>
+    <br><br>
+    <button type="submit"  class="btn-31">
+        <span class="text-container">
+          <span class="text">Sign Up</span>
+        </span>
+      </button>
+    </form>
+</body>
+<script>
+function checkInput() {
+  var value = document.getElementById("input6").value;
+  var myTextBox=document.getElementById("input6");
+  error=[]
+  if(value==""){
+    myTextBox.style.backgroundColor = 'white';
+    document.getElementById("InvalidCheck").innerHTML="";
+  }
+  else if (value.length < 8 && value!="") {
+   myTextBox.style.backgroundColor = 'red';
+    document.getElementById("InvalidCheck").innerHTML="Password should contain atleast 8 characters";
+    console.log("Invalid");
+  }
+  else if(value.search(/[a-z]/i) < 0 || value.search(/[0-9]/) <0){
+    document.getElementById("InvalidCheck").innerHTML="Your password must contain at least one letter and one word ";
+  }
+   else {
+    myTextBox.style.backgroundColor = 'white';
+    document.getElementById("InvalidCheck").innerHTML="";
+  }
+  console.log(value.length);
+}
+    // var p = document.getElementById('input6').value,
+    //     errors = [];
+    // if (p.length < 8) {
+    //     errors.push("Your password must be at least 8 characters"); 
+    // }
+    // if (p.search(/[a-z]/i) < 0) {
+    //     errors.push("Your password must contain at least one letter.");
+    // }
+    // if (p.search(/[0-9]/) < 0) {
+    //     errors.push("Your password must contain at least one digit."); 
+    // }
+    // if (errors.length > 0) {
+    //     alert(errors.join("\n"));
+    //     return false;
+    // }
+    // return true;
+ 
+</script>
+</html>

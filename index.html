@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Login</title>
+</head>
+<body>
+  <div class="topnav">
+    <a class="active" href="home.html">Admin Page</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="#contact">Contact</a>
+  
+  </div>
+  <div class="body1">
+  <div class="form">
+    <h2>Login</h2>
+    <div class="input">
+        <div class="inputBox">
+            <label for="">Username</label>
+            <input id="name" type="text">
+        </div>
+        <div class="inputBox">
+            <label for="">Password</label>
+            <input id="pswd" type="password">
+        </div>
+        
+          <button id="click" value="Sign In">              SIGN IN    </button>
+        
+    </div>
+    <p style="color:white">For new account  <a href="index2.html">Sign up</a> </p>
+    
+</div>
+</div>
+ <script>
+  
+ 
+  document.getElementById("click").onclick = function (event) {
+        console.log("hi");
+        let name=document.getElementById("name").value;
+        let pswd=document.getElementById("pswd").value;
+
+  fetch("/data")
+  .then((r)=>{
+    return r.json();
+  })
+  .then((data)=>{
+    let a = data;
+    let len=a.length;
+    for (let i = 0; i < len; i++) {
+      console.log(a[i].password);
+          if(a[i].User_name==name && a[i].password==pswd){
+            console.log("Succefull");
+            localStorage.setItem("username",name);
+            location.href = "index3.html";
+            return 0;
+
+
+
+
+            
+          }
+}
+console.log("Failure");
+document.getElementById("pswd").value="";
+// document.getElementById("alert").innerHTML="Invalid password or userid";
+
+alert("Incorrect password");
+  })
+  event.preventDefault();c
+}
+
+
+         
+      
+  
+
+</script>
+</body>
+</html>

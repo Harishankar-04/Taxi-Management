@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bill.css">
+    <title>Billing  Page</title>
+</head>
+<body>
+
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+		<tr class="top_rw">
+		   <td colspan="2">
+		      <h2 style="margin-bottom: 0px;"> Bill Details </h2>
+			  <span>  Date: 21-11-2018 </span>
+		   </td>
+		    <td  style="width:30%; margin-right: 10px;">
+		        Bill Id: <label id="billid"></label>
+		   </td>
+		</tr>
+            <tr class="top">
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td>
+							
+                </td>
+            </tr>
+            <tr class="information">
+                  <td colspan="3">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+							<b> GO TAXI</b> <br>
+                                Coimbatore,TN <br>
+                                +0651-908-090-009<br>
+                                gotaxi@gmail.com<br>
+								
+                            </td>
+                          <td> <b> User ID: <label id="Id"> </label> </b><br>
+                               <label> </label><br>
+                                <label> </label><br>
+                               
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+                            <td colspan="3">
+            <table cellspacing="0px" cellpadding="2px">
+            <tr class="heading">
+                <td style="width:15%;">
+                    From
+                </td>
+				<td style="width:10%; text-align:center;">
+                    To
+                </td>
+                <td style="width:10%; text-align:right;">
+                    PRICE (INR)
+                </td>
+				 <td style="width:15%; text-align:right;">
+                   Discount
+                </td>
+				 <td style="width:15%; text-align:right;">
+                    Discount AMOUNT (INR)
+                </td>
+				 <td style="width:15%; text-align:right;">
+                   TOTAL AMOUNT (INR)
+                </td>
+            </tr>
+			<tr class="item">
+               <td style="width:25%;">
+                    <label id="pickup"></label>
+                </td>
+				<td style="width:10%; text-align:center;">
+                    <label id="drop"></label>
+                </td>
+                <td style="width:10%; text-align:right;">
+                    <label id="price"></label>
+                </td>
+				 <td style="width:15%; text-align:right;">
+                   18%
+                </td>
+				 <td style="width:15%; text-align:right;">
+                    57.97
+                </td>
+				 <td style="width:15%; text-align:right;">
+                    <label id="finalprice"></label>
+                </td>
+            </tr>
+			
+			</table>
+            <tr class="total">
+                  <td colspan="3" align="right">  Total Amount in Words :  <b> <label id="words"></label> Only </b> </td>
+            </tr>
+			<tr>
+			   <td colspan="3">
+			     <table cellspacing="0px" cellpadding="2px">
+				    <tr>
+			            <td width="50%">
+						<b> Declaration: </b> <br>
+We declare that this invoice shows the actual price of the  Taxi service
+described above and that all particulars are true and correct. The
+service sold are intended for end user consumption and not for resale.
+						</td>
+						<td>
+						 * This is a computer generated invoice and does not
+						  require a physical signature
+						</td>
+			        </tr>
+					 <tr>
+			            <td width="50%">
+						</td>
+						<td>
+						</td>
+			        </tr>
+			     </table>
+			   </td>
+			</tr>
+        </table>
+    </div>
+ 
+</div>
+</div> 
+</form>
+<button id="click"> Proceed for payment</button>
+<script>
+
+
+function numberToEnglish( n ) {
+        
+        var string = n.toString(), units, tens, scales, start, end, chunks, chunksLen, chunk, ints, i, word, words, and = 'and';
+
+        /* Remove spaces and commas */
+        string = string.replace(/[, ]/g,"");
+
+        /* Is number zero? */
+        if( parseInt( string ) === 0 ) {
+            return 'zero';
+        }
+        
+        /* Array of units as words */
+        units = [ '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen' ];
+        
+        /* Array of tens as words */
+        tens = [ '', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety' ];
+        
+        /* Array of scales as words */
+        scales = [ '', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quatttuor-decillion', 'quindecillion', 'sexdecillion', 'septen-decillion', 'octodecillion', 'novemdecillion', 'vigintillion', 'centillion' ];
+        
+        /* Split user argument into 3 digit chunks from right to left */
+        start = string.length;
+        chunks = [];
+        while( start > 0 ) {
+            end = start;
+            chunks.push( string.slice( ( start = Math.max( 0, start - 3 ) ), end ) );
+        }
+        
+        /* Check if function has enough scale words to be able to stringify the user argument */
+        chunksLen = chunks.length;
+        if( chunksLen > scales.length ) {
+            return '';
+        }
+        
+        /* Stringify each integer in each chunk */
+        words = [];
+        for( i = 0; i < chunksLen; i++ ) {
+            
+            chunk = parseInt( chunks[i] );
+            
+            if( chunk ) {
+                
+                /* Split chunk into array of individual integers */
+                ints = chunks[i].split( '' ).reverse().map( parseFloat );
+            
+                /* If tens integer is 1, i.e. 10, then add 10 to units integer */
+                if( ints[1] === 1 ) {
+                    ints[0] += 10;
+                }
+                
+                /* Add scale word if chunk is not zero and array item exists */
+                if( ( word = scales[i] ) ) {
+                    words.push( word );
+                }
+                
+                /* Add unit word if array item exists */
+                if( ( word = units[ ints[0] ] ) ) {
+                    words.push( word );
+                }
+                
+                /* Add tens word if array item exists */
+                if( ( word = tens[ ints[1] ] ) ) {
+                    words.push( word );
+                }
+                
+                /* Add 'and' string after units or tens integer if: */
+                if( ints[0] || ints[1] ) {
+                    
+                    /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
+                    if( ints[2] || ! i && chunksLen ) {
+                        words.push( and );
+                    }
+                
+                }
+                
+                /* Add hundreds word if array item exists */
+                if( ( word = units[ ints[2] ] ) ) {
+                    words.push( word + ' hundred' );
+                }
+                
+            }
+            
+        }
+        
+        return words.reverse().join( ' ' );
+        
+    }
+
+
+
+
+
+
+
+
+
+   fetch("/data1")
+  .then((r)=>{
+    return r.json();
+  })
+  .then((data)=>{
+    let a = data;
+    console.log(a);
+    document.getElementById("Id").innerHTML=a.userid;
+    document.getElementById("pickup").innerHTML=a.p;
+    document.getElementById("drop").innerHTML=a.d;
+    document.getElementById("price").innerHTML=a.price;
+    document.getElementById("finalprice").innerHTML=a.price-57.97;
+    document.getElementById("billid").innerHTML=a.billid;
+    document.getElementById("words").innerHTML=numberToEnglish(a.price-57.97);
+    localStorage.setItem("Amount",a.price-57.97);
+    
+})
+
+document.getElementById("click").onclick = function (event) {
+    location.href = "index4.html";
+
+}
+</script>
+</body>
+
+</html>

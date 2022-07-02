@@ -1,0 +1,54 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  box-shadow: 5px 5px 10px 0px #d4d4d4,5px 5px 10px 0px #d4d4d4;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #41627d;
+}
+.home-button {
+  top: 406px;
+  left: 497px;
+  width: 179px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600;
+  background-color: orange;
+}
+.home-button1 {
+  top: 491px;
+  left: 494px;
+  width: 179px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600;
+  background-color: orange;
+}
+.home-button2 {
+  top: 588px;
+  left: 498px;
+  width: 179px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600;
+  background-color: orange;
+}
+.home-button3 {
+  top: 318px;
+  left: 498px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600;
+  background-color: orange;
+}
+.home-text {
+  top: 198px;
+  left: 486px;
+  color: var(--dl-color-gray-white);
+  width: 214px;
+  height: 49px;
+  position: absolute;
+}

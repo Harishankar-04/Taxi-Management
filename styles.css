@@ -1,0 +1,151 @@
+#img1{
+    max-width: 100%;
+    width : 1000px;
+    height: 99vh;
+}
+.whole_page{
+    display: inline-flex;
+   
+	
+}
+
+
+.form{
+    width: 280px;
+    height: 200px;
+    margin-top: 100px;
+    margin-left: 100px;
+   
+    border-width: 20px;
+    padding: 15px;
+    
+}
+.right{
+     width: 37%;
+     justify-content:flex-start;
+     display: flex;
+     position: absolute;
+     flex-direction: column;
+     margin-left: 930px;
+     margin-top: 4%;
+     background: linear-gradient(11deg, #060606bf 0%, #34342acd 51%, #383427 75%);
+     background-repeat: no-repeat;
+}
+footer{
+ 
+  margin-top: 300px;
+}
+
+
+
+
+#img2{
+    width : 200px;
+    height: 100px;
+}
+.logo{
+  position: absolute;
+  margin-top: 25px;
+  margin-left:105px;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  /* padding: 8% 0 0; */
+  margin-left:60px;
+  margin-top: 30px;
+  
+  /* height: 600px; */
+  position:absolute;
+
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 150px;
+  padding: 85px;
+  text-align: center;
+  margin-top: 120px;
+  
+ /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: rgb(141,194,111);
+  background: linear-gradient(11deg, #3f4037bf 0%, #22221fcd 51%, #2e2915 75%);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;     
+  position: relative; 
+}
+
+.frame {
+  height: 90vh;
+  width: 920px;
+  margin: 5vh 5vw;
+  /* background-color: #eee; */
+  background-position: center;
+  background-size: cover;
+ /* position: ;*/
+  animation: image 10s infinite alternate;
+  margin-left: 0%;
+}
+@keyframes image {
+  0% {
+    background-image: url('images3.jfif');
+  }
+  25% {
+    background-image: url('transimg.jfif');
+  }
+  50% {
+    background-image: url('uber000660_032918015545_140520105659.jpg');
+  }
+  100% {
+    background-image: url('stand.jfif');
+  }
+}

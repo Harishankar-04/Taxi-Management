@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="style3.css">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Trip Details</h2>
+    <form action="/booktrip" method="POST" onsubmit="myFunction()"">
+      <div class="input-box">
+        <input name="pickup" type="text" placeholder="Pickup Location" required>
+      </div>
+      <div class="input-box">
+        <select name="drop" id="drop" placeholder="Selcect drop location">
+          <option value="" disabled selected>Select drop location</option>
+          <option value="Marudamalai">Marudamalai</option>
+          <option value="Perur">Perur</option>
+          <option value="Ukkadam">Ukkadam</option>
+          <option value="Pollachi">Pollachi</option>
+          <option value="Ooty">Ooty</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <select name="cabtype" list="cab-type" placeholder="Selcect Cab Type">
+          <option value="" disabled selected>Select Cab type</option>
+          <option value="Mini">Mini</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+         
+        </select>
+        <!--input type="password" placeholder="Create password" required-->
+      </div>
+      <div class="input-box">
+        
+        <input name="tripdate" type="text" placeholder="Trip Date" onfocus="(this.type='date')"required>
+      </div>
+      <div  class="input-box">
+        
+        <input name="time" type="text" placeholder="Trip Time" onfocus="(this.type='time')" required>
+       <input id="local" style="display:none" name="user_id" type="text" >
+      </div>
+      <!--div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & conditions</h3>
+      </div-->
+      <div class="input-box button">
+      <a href="./bill.html"> <input id="Submit" type="submit" value="Book Cab"> </a> 
+      </div>
+      
+    </form>
+  </div>
+  <script>
+    document.getElementById("local").value=localStorage.getItem("username");
+   
+  
+   
+
+  </script>
+</body>
+</html>
